@@ -2,7 +2,7 @@
 @push('css')
     
 @endpush
-@section('title', 'Admin Settings')
+@section('title', 'Author Settings')
 
 @section('content')
      <div class="container-fluid">
@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        ADMIN SETTINGS
+                        AUTHOR SETTINGS
                     </h2>
                 </div>
                 <div class="body">
@@ -32,7 +32,7 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade active in" id="profile_with_icon_title">
                             {{-- form --}}
-                            <form method="POST" action="{{ route('admin.profile.update')}}" enctype="multipart/form-data" class="form-horizontal">
+                            <form method="POST" action="{{ route('author.profile.update')}}" enctype="multipart/form-data" class="form-horizontal">
                                @csrf
                                @method('PUT')
                                 <div class="row clearfix">
@@ -92,7 +92,7 @@
                                 </div>
                             <div role="tabpanel" class="tab-pane fade" id="password_with_icon_title">
                             {{-- form --}}
-                            <form method="POST" action="{{ route('admin.password.update')}}" class="form-horizontal">
+                            <form method="POST" action="{{ route('author.password.update')}}" class="form-horizontal">
                                 @csrf
                                 @method('PUT')
                                  <div class="row clearfix">

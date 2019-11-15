@@ -10,7 +10,7 @@
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                        <li><a href="{{ Auth::user()->role->id == 1 ? route('admin.settings') : route('author.settings')}}"><i class="material-icons">settings</i>Settings</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}" 
@@ -69,6 +69,12 @@
                         </a>
                     </li>
                     <li class="header">System</li>
+                    <li class="{{ Request::is('admin/settings') ? 'active' : ''}}">
+                        <a href="{{ route('admin.settings')}}">
+                            <i class="material-icons">settings</i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
                 @endif
 
                 @if(Request::is('author*'))
@@ -85,6 +91,12 @@
                         </a>
                     </li>
                     <li class="header">System</li>
+                    <li class="{{ Request::is('author/settings') ? 'active' : ''}}">
+                        <a href="{{ route('author.settings')}}">
+                            <i class="material-icons">settings</i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
                 @endif
                 <li>
                     <a class="dropdown-item" href="{{ route('logout') }}" 

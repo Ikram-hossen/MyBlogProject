@@ -41,6 +41,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
     public function posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post')->withTimestamps();
+    }
+    public function favourite_posts(){
+        return $this->belongsToMany('App\Post')->withTimestamps();
     }
 }
